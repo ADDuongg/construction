@@ -9,36 +9,53 @@ html {
     width: 100%;
     height: 100%;
 }
+/* #root{
+    height: 100%;
+    width: 100%;
+} */
+.wrapper{
+    position: relative;
+    top: 0;
+    height: 100vh;
+}
 
 .sidebar {
-    height: 100vh;
+    height: 100%;
     width: 20%;
     background-color: rgb(43, 40, 62);
     color: white;
+    max-height: 100%;
     /* overflow-y: scroll; */
 }
 
-.offcanvas {
+.offcanvas-xl {
     background-color: rgb(43, 40, 62);
+    height: calc(100vh - 100px);
+    overflow: auto;
+    
 }
 
 .divContent {
     height: 100%;
     width: 80%;
+    
 }
 .btnsidebar{
-    display: none;
+    visibility: hidden;
 }
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
     .sidebar {
 
         margin-left: -20%;
     }
     .btnsidebar{
-        display: block;
+        visibility: visible;
     }
     .divContent {
-        width: auto;
+        width: 100%;
+    }
+    .offcanvas-xl{
+        height: 100%;
     }
 }
 .navitem{
@@ -56,4 +73,33 @@ html {
 .navitem:hover{
     background-color: white;
     color: black;
+}
+
+
+
+/* homepage */
+.header{
+    height: 4rem;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.homepage{
+    background-color: #E6E5E6;
+    width: 100%;
+    height: calc(100% - 4rem);
+    overflow-y: auto;
+}
+.divHome{
+    position: relative;
+}
+.iconDetail{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
 }

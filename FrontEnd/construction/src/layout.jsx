@@ -4,9 +4,9 @@ import Header from './component/header';
 
 const Layout = ({ children }) => {
     return (
-        <div className='d-flex h-100'>
+        <div className='d-flex wrapper'>
             <Sidebar />
-            <div className='divContent'>
+            <div className='divContent h-100'>
                 <Header/>
                 {children}
             </div>
