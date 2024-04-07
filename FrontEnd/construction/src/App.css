@@ -1,0 +1,154 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+/* #root{
+    height: 100%;
+    width: 100%;
+} */
+.wrapper{
+    position: relative;
+    top: 0;
+    height: 100vh;
+}
+
+.sidebar {
+    height: 100%;
+    width: 20%;
+    background-color: rgb(43, 40, 62);
+    color: white;
+    max-height: 100%;
+   
+}
+
+.setDefault{
+    text-decoration: none;
+    color: white;
+}
+
+
+.offcanvas-xl {
+    background-color: rgb(43, 40, 62);
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+    
+}
+
+.divContent {
+    height: 100%;
+    width: 80%;
+    
+}
+.btnsidebar{
+    visibility: hidden;
+}
+@media (max-width: 1200px) {
+    .sidebar {
+        margin-left: -20%;
+    }
+    .btnsidebar{
+        visibility: visible;
+    }
+    .divContent {
+        width: 100%;
+    }
+    .offcanvas-xl{
+        height: 100%;
+    }
+}
+.navitem{
+    cursor: pointer;
+    padding: 0 2rem;
+    margin-top: 10px;
+    height: 3rem;
+    min-height: 3rem;
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    text-align: start;
+    padding-top: 10px;
+    
+}
+.navitem:hover{
+    background-color: white;
+    color: black;
+}
+
+
+
+/* homepage */
+.header{
+    height: 4rem;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.homepage{
+    background-color: #E6E5E6;
+    width: 100%;
+    height: calc(100% - 4rem);
+    overflow-y: auto;
+}
+.divHome{
+    position: relative;
+    
+}
+.iconDetail{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* All */
+.detailContent{
+    background-color: #E6E5E6;
+    width: 100%;
+    height: calc(100vh - 65px);
+    overflow-y: auto;
+}
+i{
+    cursor: pointer;
+}
+/* Schedule */
+/* .searchSchedule{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 20px;
+    color: white
+} */
+
+
+/* Table */
+td, th{
+    text-align: center;
+}
+
+#materialTable td,
+#materialTable th {
+    font-size: 20px; 
+    padding: 5px 8px; 
+}
+
+
+#materialTable th {
+    font-size: 18px; 
+}
+
+#materialTable .table-striped>tbody>tr>td, 
+#materialTable .table-striped>tbody>tr>th {
+    font-size: 18px; 
+}
+
