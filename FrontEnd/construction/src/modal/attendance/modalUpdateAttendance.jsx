@@ -14,7 +14,7 @@ const ModalUpdateAttendance = (props) => {
         duan_id: '',
         giaidoan_duan_id: '',
         ngaydiemdanh: '',
-        nguoitao: user[0]?.hoten
+        nguoitao: user[0]?.nhanvien_id
     });
     const duanIdsArray = user.map(item => item.duan_id);
 

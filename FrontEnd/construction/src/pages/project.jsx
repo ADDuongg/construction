@@ -178,7 +178,7 @@ const Project = () => {
                         </select>
                         <label htmlFor="limit">entries per page</label>
                     </div>
-                    <div className="row" style={{overflow: 'auto'}}>
+                    <div className="row" style={{overflowX: 'auto', overflowY: 'unset'}}>
                         <table className="table"style={{minWidth: '100vh'}}>
                             <thead>
                                 <tr>
@@ -233,11 +233,11 @@ const Project = () => {
 
                                             <td>{project.status}</td>
                                             <td>
-                                                <div className="dropdown">
-                                                    <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <div className="dropdown " >
+                                                    <button className="btn btn-secondary dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                         Hành động
                                                     </button>
-                                                    <ul className="dropdown-menu px-3">
+                                                    <ul className="dropdown-menu px-3" >
                                                         {user[0].chucvu === 'construction manager' ? (
                                                             <li>
                                                                 <Link to={`/addSchedule/${project.id}`} className='btn btn-secondary w-100 mb-2'>Thêm lịch trình dự án</Link>

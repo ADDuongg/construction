@@ -221,7 +221,7 @@ const ExtendProject = () => {
                                             <td>{project.ngayketthuc}</td>
                                             <td>{project.thoigian_giahan}</td>
                                             <td>{project.lydogiahan}</td>
-                                            <td>{project.nguoigiahan}</td>
+                                            <td>{project.hoten}</td>
                                             {/* <td>{project.hoten}</td> */}
                                             <td>
                                                 <div className="dropdown">

@@ -12,7 +12,7 @@ const ModalImportMatterials = () => {
     const [importMatterial, setImport] = useState({
         duan_id: '',
         ghichu: '',
-        nguoinhap: user[0]?.hoten,
+        nguoinhap: user[0]?.nhanvien_id,
     });
     const addRow = () => {
         const newRow = {

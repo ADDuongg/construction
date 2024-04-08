@@ -16,7 +16,7 @@ const ModalAddStatePayment = (props) => {
         giaidoan_duan_id: '',
         khachhang_id: '',
         dot_thanhtoan: '',
-        nguoitao: user[0]?.hoten,
+        /* nguoitao: user[0]?.hoten, */
     });
     
     const addRow = () => {

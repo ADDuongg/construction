@@ -19,8 +19,9 @@ class ExtendContractController extends Controller
         $query = DB::table('giahan_hopdong')
        
         ->leftJoin('hopdong','giahan_hopdong.hopdong_id','=','hopdong.hopdong_id')
+        ->leftJoin('nhanvien','nhanvien.nhanvien_id','=','giahan_hopdong.nhanvien_id')
         ->leftJoin('khachhang','khachhang.khachhang_id','=','giahan_hopdong.khachhang_id')
-        ->select('giahan_hopdong.*','hopdong.*','khachhang.hoten');
+        ->select('giahan_hopdong.*','hopdong.*','khachhang.hoten AS hotenkhachhang','nhanvien.nhanvien_id','nhanvien.hoten');
 
         if($request->has('tenhopdong')){
             $tenhopdong = $request->tenhopdong;
@@ -84,7 +85,7 @@ class ExtendContractController extends Controller
             'hopdong_id' => 'required',
             'thoigian_giahan' => 'required',
             'lydogiahan' => 'required',
-            'nguoigiahan' => 'required',
+            'nhanvien_id' => 'required',
             'khachhang_id' => 'required',
         ]);
 
@@ -109,7 +110,7 @@ class ExtendContractController extends Controller
             'hopdong_id' => 'required',
             'thoigian_giahan' => 'required',
             'lydogiahan' => 'required',
-            'nguoigiahan' => 'required',
+            'nhanvien_id' => 'required',
             'khachhang_id' => 'required',
         ]);
         $extendProject = ExtendContract::findOrFail($id);

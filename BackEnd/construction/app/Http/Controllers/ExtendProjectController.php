@@ -16,11 +16,12 @@ class ExtendProjectController extends Controller
      */
     public function index(Request $request)
     {
-        $query = DB::table('giahan_thicong')
-        ->leftJoin('du_an','du_an.id','=','giahan_thicong.duan_id')
+        $query = DB::table('giahan_duan')
+        ->leftJoin('du_an','du_an.id','=','giahan_duan.duan_id')
+        ->leftJoin('nhanvien','nhanvien.nhanvien_id','=','giahan_duan.nhanvien_id')
         ->leftJoin('hopdong','du_an.hopdong_id','=','hopdong.hopdong_id')
        /*  ->leftJoin('khachhang','khachhang.khachhang_id','=','hopdong.khachhang_id') */
-        ->select('giahan_thicong.*','du_an.tenduan','du_an.ngayketthuc','du_an.ngaybatdau','hopdong.hopdong_id'/* ,'khachhang.hoten' */);
+        ->select('nhanvien.nhanvien_id','nhanvien.hoten','giahan_duan.*','du_an.tenduan','du_an.ngayketthuc','du_an.ngaybatdau','hopdong.hopdong_id'/* ,'khachhang.hoten' */);
 
         if($request->has('tenduan')){
             $tenduan = $request->tenduan;
@@ -40,15 +41,15 @@ class ExtendProjectController extends Controller
         }
         if($request->has('thoigiangiahan')){
             $thoigiangiahan = $request->thoigiangiahan;
-            $query->where('giahan_thicong.thoigian_giahan','LIKE','%'.$thoigiangiahan.'%');
+            $query->where('giahan_duan.thoigian_giahan','LIKE','%'.$thoigiangiahan.'%');
         }
         if($request->has('lydogiahan')){
             $lydogiahan = $request->lydogiahan;
-            $query->where('giahan_thicong.lydogiahan','LIKE','%'.$lydogiahan.'%');
+            $query->where('giahan_duan.lydogiahan','LIKE','%'.$lydogiahan.'%');
         }
         /* if($request->has('khachhang_id')){
             $khachhang_id = $request->khachhang_id;
-            $query->where('giahan_thicong.khachhang_id','LIKE','%'.$khachhang_id.'%');
+            $query->where('giahan_duan.khachhang_id','LIKE','%'.$khachhang_id.'%');
         } */
         $contracts = Contract::all();
         $projects = Project::all();
@@ -84,7 +85,7 @@ class ExtendProjectController extends Controller
             'duan_id' => 'required',
             'thoigian_giahan' => 'required',
             'lydogiahan' => 'required',
-            'nguoigiahan' => 'required',
+            'nhanvien_id' => 'required',
             /* 'khachhang_id' => 'required', */
         ]);
 
@@ -109,7 +110,7 @@ class ExtendProjectController extends Controller
             'duan_id' => 'required',
             'thoigian_giahan' => 'required',
             'lydogiahan' => 'required',
-            'nguoigiahan' => 'required',
+            'nhanvien_id' => 'required',
             /* 'khachhang_id' => 'required', */
         ]);
         $extendProject = ExtendProject::findOrFail($id);

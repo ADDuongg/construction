@@ -13,7 +13,7 @@ const ModalAddExtendContract = (props) => {
         thoigian_giahan: '',
         lydogiahan: '',
         khachhang_id: '',
-        nguoigiahan: user[0]?.hoten
+        nhanvien_id: user[0]?.nhanvien_id
     });
     const [selectedProject, setSelectedProject] = useState(null);
 
@@ -124,7 +124,7 @@ const ModalAddExtendContract = (props) => {
                                     <textarea name="lydogiahan" className='form-control' placeholder='' onChange={handleChange} />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="nguoigiahan" className='form-label'>Người gia hạn : <strong>{user.hoten}</strong></label>
+                                    <label htmlFor="nguoigiahan" className='form-label'>Người gia hạn : <strong>{user[0].hoten}</strong></label>
                                 </div>
                             </div>
                             <div className="modal-footer">

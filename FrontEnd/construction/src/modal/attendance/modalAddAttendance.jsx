@@ -13,7 +13,7 @@ const ModalAddAttendance = (props) => {
         duan_id: '',
         giaidoan_duan_id: '',
         ngaydiemdanh: '',
-        nguoitao: user[0]?.hoten
+        nguoitao: user[0]?.nhanvien_id
     });
 
     const hoursOfDay = [];

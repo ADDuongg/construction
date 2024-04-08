@@ -17,8 +17,9 @@ class ProjectController extends Controller
     public function index(Request $request)
     {
         $query = DB::table('du_an')
-        /* ->leftJoin('thietke_duan','thietke_duan.duan_id','=','du_an.id')
-        ->select('du_an.*','thietke_duan.file','thietke_duan.file_path') */
+        /* ->leftJoin('nhanvien', 'nhanvien.nhanvien_id', '=', 'du_an.nhanvien_id') */
+        /* ->leftJoin('thietke_duan','thietke_duan.duan_id','=','du_an.id') */
+        /* ->select('du_an.*','nhanvien.hoten','nhanvien.nhanvien_id') */
         ;
 
         if ($request->has('tenduan')) {

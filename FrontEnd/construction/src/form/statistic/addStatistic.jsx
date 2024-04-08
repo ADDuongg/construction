@@ -16,7 +16,7 @@ const AddStatistic = () => {
         ngaythongke: '',
         ghichu: '',
         giaidoan_duan_id: '',
-        nguoithongke: user[0]?.hoten
+        nhanvien_id: user[0]?.nhanvien_id
     });
     const [numberState, setNumberState] = useState([]);
     const queryClient = useQueryClient();

@@ -237,7 +237,7 @@ const Attendance = () => {
                                                 <td>{item.id}</td>
                                                 <td>{item.duan_id}</td>
                                                 <td>{item.giaidoan}</td>
-                                                <td>{item.nguoitao}</td>
+                                                <td>{item.hoten}</td>
                                                 <td>{item.ngaydiemdanh}</td>
                                                 <td>
 

@@ -24,6 +24,8 @@ class HireReceiptController extends Controller
                 'phieuthue_maymoc.ghichu',
                 'phieuthue_maymoc.duan_id',
                 'phieuthue_maymoc.created_at',
+                'nhanvien.nhanvien_id',
+                'nhanvien.hoten',
                 DB::raw('GROUP_CONCAT(chitiet_phieuthue.tenmaymoc) AS tenmaymoc'),
                 DB::raw('GROUP_CONCAT(chitiet_phieuthue.mamaymoc) AS mamaymoc'),
                 DB::raw('GROUP_CONCAT(chitiet_phieuthue.sogiothue) AS sogiothue'),
@@ -35,8 +37,9 @@ class HireReceiptController extends Controller
                 DB::raw('GROUP_CONCAT(nhathau.tennhathau) AS tennhathau')
             )
             ->leftJoin('chitiet_phieuthue', 'chitiet_phieuthue.phieuthue_id', '=', 'phieuthue_maymoc.id')
+            ->leftJoin('nhanvien', 'nhanvien.nhanvien_id', '=', 'phieuthue_maymoc.nguoithue')
             ->leftJoin('nhathau', 'chitiet_phieuthue.nhathau_id', '=', 'nhathau.nhathau_id')
-            ->groupBy('phieuthue_maymoc.updated_at', 'phieuthue_maymoc.created_at', 'phieuthue_maymoc.id', 'phieuthue_maymoc.nguoithue', 'phieuthue_maymoc.ghichu', 'phieuthue_maymoc.duan_id');
+            ->groupBy('phieuthue_maymoc.updated_at', 'phieuthue_maymoc.created_at', 'phieuthue_maymoc.id', 'phieuthue_maymoc.nguoithue', 'phieuthue_maymoc.ghichu', 'phieuthue_maymoc.duan_id','nhanvien.nhanvien_id','nhanvien.hoten');
 
         if ($request->has('query')) {
             $queryString = $request->input('query');

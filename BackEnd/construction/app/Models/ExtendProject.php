@@ -11,12 +11,12 @@ class ExtendProject extends Model
     use HasFactory, HasApiTokens;
 
 
-    protected $table = 'giahan_thicong';
+    protected $table = 'giahan_duan';
     protected $fillable = [
         'duan_id',
         'thoigian_giahan',
         'lydogiahan',
-        'nguoigiahan',
+        'nhanvien_id',
         /* 'khachhang_id' */
     ];
 }

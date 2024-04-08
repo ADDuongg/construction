@@ -27,7 +27,7 @@ const EditStatistic = () => {
         ngaythongke: '',
         ghichu: '',
         giaidoan_duan_id: '',
-        nguoithongke: ''
+        nhanvien_id: user[0]?.nhanvien_id
     });
     
     useEffect(() => {
@@ -37,7 +37,7 @@ const EditStatistic = () => {
                 ngaythongke: statisticById && statisticById.ngaythongke || '',
                 ghichu: statisticById && statisticById.ghichu || '',
                 giaidoan_duan_id: statisticById && statisticById.giaidoan_duan_id || '',
-                nguoithongke: statisticById && statisticById.nguoithongke || ''
+                nhanvien_id: statisticById && statisticById.nhanvien_id || ''
             };
             setStatistic(initStatistic);
         }

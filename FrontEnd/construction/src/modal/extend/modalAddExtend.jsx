@@ -13,8 +13,9 @@ const ModalAddExtend = (props) => {
         thoigian_giahan: '',
         lydogiahan: '',
         /*  khachhang_id: '', */
-        nguoigiahan: user[0]?.hoten
+        nhanvien_id: user[0]?.nhanvien_id
     });
+    console.log(user[0]);
     const [selectedProject, setSelectedProject] = useState(null);
     useEffect(() => {
         if (selectedProject) {

@@ -13,7 +13,7 @@ const ModalHireMachine = () => {
     const [importMatterial, setImport] = useState({
         duan_id: '',
         ghichu: '',
-        nguoithue: user[0]?.hoten,
+        nguoithue: user[0]?.nhanvien_id,
     });
     const addRow = () => {
         const newRow = {

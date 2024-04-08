@@ -24,6 +24,8 @@ class ImportReceiptController extends Controller
                 'phieunhap_vatlieu.ghichu',
                 'phieunhap_vatlieu.duan_id',
                 'phieunhap_vatlieu.created_at',
+                'nhanvien.nhanvien_id',
+                'nhanvien.hoten',
                 DB::raw('GROUP_CONCAT(chitiet_phieunhap.tenvatlieu) AS tenvatlieu'),
                 DB::raw('GROUP_CONCAT(chitiet_phieunhap.mavatlieu) AS mavatlieu'),
                 DB::raw('GROUP_CONCAT(chitiet_phieunhap.khoiluongdung) AS khoiluongdung'),
@@ -36,8 +38,9 @@ class ImportReceiptController extends Controller
                 DB::raw('GROUP_CONCAT(nhathau.tennhathau) AS tennhathau')
             )
             ->leftJoin('chitiet_phieunhap', 'chitiet_phieunhap.phieunhap_id', '=', 'phieunhap_vatlieu.id')
+            ->leftJoin('nhanvien', 'nhanvien.nhanvien_id', '=', 'phieunhap_vatlieu.nguoinhap')
             ->leftJoin('nhathau', 'chitiet_phieunhap.nhathau_id', '=', 'nhathau.nhathau_id')
-            ->groupBy('phieunhap_vatlieu.updated_at', 'phieunhap_vatlieu.created_at', 'phieunhap_vatlieu.id', 'phieunhap_vatlieu.nguoinhap', 'phieunhap_vatlieu.ghichu', 'phieunhap_vatlieu.duan_id');
+            ->groupBy('phieunhap_vatlieu.updated_at', 'phieunhap_vatlieu.created_at', 'phieunhap_vatlieu.id', 'phieunhap_vatlieu.nguoinhap', 'phieunhap_vatlieu.ghichu', 'phieunhap_vatlieu.duan_id','nhanvien.nhanvien_id','nhanvien.hoten');
 
         if ($request->has('query')) {
             $queryString = $request->input('query');

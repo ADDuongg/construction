@@ -21,7 +21,7 @@ class Project extends Model
         'ngayketthuc',
         'status',
         'soluonggiaidoan',
-        'nguoitao',
+        
         'diadiem',
         'tencongtrinh'
     ];

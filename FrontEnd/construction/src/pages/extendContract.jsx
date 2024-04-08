@@ -214,8 +214,8 @@ const ExtendContract = () => {
                                             <td>{contract.ngayketthuc}</td>
                                             <td>{contract.thoigian_giahan}</td>
                                             <td>{contract.lydogiahan}</td>
-                                            <td>{contract.nguoigiahan}</td>
                                             <td>{contract.hoten}</td>
+                                            <td>{contract.hotenkhachhang}</td>
                                             <td>
                                                 <div className="dropdown">
                                                     <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -19,7 +19,7 @@ const ModalUpdateExtend = (props) => {
         ngayketthuc: '',
         lydogiahan: '',
         
-        nguoigiahan: user[0]?.hoten
+        nhanvien_id: user[0]?.nhanvien_id
     });
 
     useEffect(() => {
@@ -33,7 +33,7 @@ const ModalUpdateExtend = (props) => {
                 ngayketthuc: projectById.ngayketthuc || '',
                 lydogiahan: projectById.lydogiahan || '',
                
-                nguoigiahan: projectById.nguoigiahan || '',
+                nhanvien_id: projectById.nhanvien_id || '',
             });
         }
     }, [id]);
@@ -145,10 +145,10 @@ const ModalUpdateExtend = (props) => {
                                     <label htmlFor="lydogiahan" className='form-label'>Lý do gia hạn</label>
                                     <textarea value={formData.lydogiahan} name="lydogiahan" className='form-control' placeholder='' onChange={handleChange} />
                                 </div>
-                                <div className="mb-3">
+                                {/* <div className="mb-3">
                                     <label htmlFor="nguoigiahan" className='form-label'>Người gia hạn </label>
                                     <input type="text" name='nguoigiahan' className='form-control' onChange={handleChange} value={formData.nguoigiahan} />
-                                </div>
+                                </div> */}
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>

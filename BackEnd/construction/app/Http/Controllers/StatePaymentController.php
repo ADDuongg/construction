@@ -97,7 +97,7 @@ class StatePaymentController extends Controller
         $state_payment->giaidoan_duan_id = $data_state_payment['giaidoan_duan_id'];
         $state_payment->khachhang_id = $data_state_payment['khachhang_id'];
         $state_payment->dot_thanhtoan = $data_state_payment['dot_thanhtoan'];
-        $state_payment->nguoitao = $data_state_payment['nguoitao'];
+        /* $state_payment->nguoitao = $data_state_payment['nguoitao']; */
 
         $state_payment->save();
 
@@ -156,7 +156,7 @@ class StatePaymentController extends Controller
         $state_payment->giaidoan_duan_id = $data_state_payment['giaidoan_duan_id'];
         $state_payment->khachhang_id = $data_state_payment['khachhang_id'];
         $state_payment->dot_thanhtoan = $data_state_payment['dot_thanhtoan'];
-        $state_payment->nguoitao = $data_state_payment['nguoitao'];
+        /* $state_payment->nguoitao = $data_state_payment['nguoitao']; */
 
         $state_payment->save();
 

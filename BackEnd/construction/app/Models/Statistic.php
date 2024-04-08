@@ -16,7 +16,7 @@ class Statistic extends Model
         'duan_id',
         'giaidoan_duan_id',
         'ghichu',
-        'nguoithongke',
+        'nhanvien_id',
         'ngaythongke',
     ];
     public function matterialStatistic()

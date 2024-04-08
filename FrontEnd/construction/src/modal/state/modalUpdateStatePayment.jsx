@@ -19,7 +19,7 @@ const ModalUpdateStatePayment = (props) => {
         giaidoan_duan_id: '',
         khachhang_id: '',
         dot_thanhtoan: '',
-        nguoitao: user[0]?.hoten,
+       /*  nguoitao: user[0]?.hoten, */
     });
     useEffect(() => {
         if (initialState) {
@@ -29,7 +29,7 @@ const ModalUpdateStatePayment = (props) => {
                 giaidoan_duan_id: initialState.giaidoan_duan_id,
                 khachhang_id: initialState.khachhang_id,
                 dot_thanhtoan: initialState.dot_thanhtoan,
-                nguoitao: initialState.nguoitao,
+                /* nguoitao: initialState.nguoitao, */
             });
 
         }
@@ -114,7 +114,7 @@ const ModalUpdateStatePayment = (props) => {
             giaidoan_duan_id: initialState.giaidoan_duan_id,
             khachhang_id: initialState.khachhang_id,
             dot_thanhtoan: initialState.dot_thanhtoan,
-            nguoitao: initialState.nguoitao,
+           /*  nguoitao: initialState.nguoitao, */
         });
         setNewRow([]);
     };

@@ -21,15 +21,16 @@ class AttendanceController extends Controller
     {
         $attendance = DB::table('diemdanh_congnhan')
             ->leftJoin('du_an', 'du_an.id', '=', 'diemdanh_congnhan.duan_id')
+            ->leftJoin('nhanvien', 'nhanvien.nhanvien_id', '=', 'diemdanh_congnhan.nguoitao')
             ->leftJoin('hopdong', 'hopdong.hopdong_id', '=', 'du_an.hopdong_id')
             ->leftJoin('giaidoan_duan', 'giaidoan_duan.id', '=', 'diemdanh_congnhan.giaidoan_duan_id')
-            ->select('diemdanh_congnhan.*', 'du_an.tenduan', 'hopdong.hopdong_id', 'giaidoan_duan.giaidoan');
+            ->select('diemdanh_congnhan.*', 'du_an.tenduan', 'hopdong.hopdong_id', 'giaidoan_duan.giaidoan','nhanvien.nhanvien_id','nhanvien.hoten');
         $detail_attendance = DB::table('chitiet_diemdanh');
 
 
         if ($request->has('nguoitao')) {
             $nguoitao = $request->nguoitao;
-            $attendance->where('diemdanh_congnhan.nguoitao', 'like', '%' . $nguoitao . '%');
+            $attendance->where('nhanvien.hoten', 'like', '%' . $nguoitao . '%');
         }
         if ($request->has('ngaydiemdanh')) {
             $ngaydiemdanh = $request->ngaydiemdanh;

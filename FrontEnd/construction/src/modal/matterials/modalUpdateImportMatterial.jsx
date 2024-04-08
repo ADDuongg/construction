@@ -18,7 +18,7 @@ const ModalUpdateImportMatterial = (props) => {
     const [importMatterial, setImport] = useState({
         duan_id: '',
         ghichu: '',
-        nguoinhap: user[0]?.hoten,
+        nguoinhap: user[0]?.nhanvien_id,
     });
     const duanIdsArray = user.map(item => item.duan_id);
     const filteredProjects = info?.project?.filter(project => {

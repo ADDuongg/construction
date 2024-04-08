@@ -18,7 +18,7 @@ const ModalUpdateHireMachine = (props) => {
     const [hireMachine, setImport] = useState({
         duan_id: '',
         ghichu: '',
-        nguoithue: user[0]?.hoten,
+        nguoithue: user[0]?.nhanvien_id,
     });
     const duanIdsArray = user.map(item => item.duan_id);
     const filteredProjects = info?.project?.filter(project => {

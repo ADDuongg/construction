@@ -210,7 +210,7 @@ const HireMachine = () => {
                                             filteredData?.map((item) => (
                                                 <tr key={item.id}>
                                                     <td >{item.id}</td>
-                                                    <td >{item.nguoithue}</td>
+                                                    <td >{item.hoten}</td>
                                                     <td className='text-start' style={{ fontSize: '20px' }}>
                                                         <table className='table table-striped'>
                                                             <thead>

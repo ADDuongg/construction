@@ -34,16 +34,19 @@ class StatisticController extends Controller
             ->leftJoin('maymoc_ngay', 'thongkengay.thongkengay_id', '=', 'maymoc_ngay.thongkengay_id')
             ->leftJoin('vatlieu_ngay', 'thongkengay.thongkengay_id', '=', 'vatlieu_ngay.thongkengay_id')
             ->leftJoin('du_an', 'thongkengay.duan_id', '=', 'du_an.id')
-            ->groupBy('du_an.tenduan', 'thongkengay.thongkengay_id', 'thongkengay.duan_id', 'thongkengay.giaidoan_duan_id', 'thongkengay.ghichu', 'thongkengay.nguoithongke', 'thongkengay.ngaythongke', 'thongkengay.created_at', 'thongkengay.updated_at');
+            ->groupBy('du_an.tenduan', 'thongkengay.thongkengay_id', 'thongkengay.duan_id', 'thongkengay.giaidoan_duan_id', 'thongkengay.ghichu', 'thongkengay.nhanvien_id', 'thongkengay.ngaythongke', 'thongkengay.created_at', 'thongkengay.updated_at');
  */
 
         $statistics = DB::table('thongkengay')
             ->leftJoin('du_an', 'thongkengay.duan_id', '=', 'du_an.id')
+            ->leftJoin('nhanvien', 'nhanvien.nhanvien_id', '=', 'thongkengay.nhanvien_id')
             ->select(
                 'thongkengay.*',
                 'du_an.tenduan',
+                'nhanvien.nhanvien_id',
+                'nhanvien.hoten'
             );
-            
+
         $machines_statistic = DB::table('maymoc_ngay')->select('maymoc_ngay.*');
         $matterials_statistic = DB::table('vatlieu_ngay')->select('vatlieu_ngay.*');
         if ($request->has('tenvatlieu')) {
@@ -53,6 +56,10 @@ class StatisticController extends Controller
         if ($request->has('tenmaymoc')) {
             $tenmaymoc = $request->input('tenmaymoc');
             $machines_statistic->where('maymoc_ngay.tenmaymoc', 'LIKE', '%' . $tenmaymoc . '%');
+        }
+        if ($request->has('hoten')) {
+            $hoten = $request->input('hoten');
+            $statistics->where('nhanvien.hoten', 'LIKE', '%' . $hoten . '%');
         }
         if ($request->has('ngaythongke')) {
             $ngaythongke = $request->input('ngaythongke');
@@ -115,7 +122,7 @@ class StatisticController extends Controller
         $statistic->duan_id = $statistic_request['duan_id'];
         $statistic->giaidoan_duan_id = $statistic_request['giaidoan_duan_id'];
         $statistic->ngaythongke = $statistic_request['ngaythongke'];
-        $statistic->nguoithongke = $statistic_request['nguoithongke'];
+        $statistic->nhanvien_id = $statistic_request['nhanvien_id'];
         $statistic->ghichu = $statistic_request['ghichu'];
         $statistic->save();
 
@@ -389,8 +396,8 @@ class StatisticController extends Controller
     public function destroy(string $id)
     {
         $statistic = Statistic::findOrFail($id);
-        $statistic_matterial = MatterialStatistic::where('thongkengay_id',$id)->get();
-        $statistic_machine = MachineStatistic::where('thongkengay_id',$id)->get();
+        $statistic_matterial = MatterialStatistic::where('thongkengay_id', $id)->get();
+        $statistic_machine = MachineStatistic::where('thongkengay_id', $id)->get();
 
         foreach ($statistic_matterial as $item) {
             $item->delete();
@@ -400,6 +407,5 @@ class StatisticController extends Controller
         }
         $statistic->delete();
         return response()->json(200);
-
     }
 }

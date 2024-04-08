@@ -18,6 +18,6 @@ class StatePayment extends Model
         'giaidoan_duan_id',
         'khachhang_id',
         'dot_thanhtoan',
-        'nguoitao'
+        /* 'nguoitao' */
     ];
 }

@@ -16,7 +16,7 @@ class ExtendContract extends Model
         'hopdong_id',
         'thoigian_giahan',
         'lydogiahan',
-        'nguoigiahan',
+        'nhanvien_id',
         'khachhang_id'
     ];
 }

@@ -15,7 +15,7 @@ const Statistic = () => {
         limit: 3,
         tenduan: '',
         ngaythongke: '',
-        nguoithongke: '',
+        hoten: '',
         tenvatlieu: '',
         tenmaymoc: '',
         /* hopdong_id: '', */
@@ -113,8 +113,8 @@ const Statistic = () => {
                                     <input onChange={handleInputChange} name='ngaythongke' type="date" className='form-control ' />
                                 </div>
                                 <div className='w-50'>
-                                    <label htmlFor="nguoithongke" className='form-label'>Người thống kê</label>
-                                    <input onChange={handleInputChange} name='nguoithongke' type="text" className='form-control ' />
+                                    <label htmlFor="hoten" className='form-label'>Người thống kê</label>
+                                    <input onChange={handleInputChange} name='hoten' type="text" className='form-control ' />
                                 </div>
                             </div>
                         </div>
@@ -191,7 +191,7 @@ const Statistic = () => {
                                                 filtered.map((item, index) => (
                                                     <tr key={index}>
                                                         <td>{index}</td>
-                                                        <td>{item.nguoithongke}</td>
+                                                        <td>{item.hoten}</td>
                                                         <td className='text-start' style={{ fontSize: '13px' }}>
                                                             <table className='table table-striped'>
                                                                 <thead>
