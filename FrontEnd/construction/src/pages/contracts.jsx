@@ -175,8 +175,8 @@ const Contracts = () => {
                         </select>
                         <label htmlFor="limit">entries per page</label>
                     </div>
-                    <div className="row" style={{overflow: 'auto'}}>
-                        <table className="table table-striped" style={{minWidth: '150vh'}}>
+                    <div className="row">
+                        <table className="table table-striped" style={{minWidth: '100vh'}}>
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>

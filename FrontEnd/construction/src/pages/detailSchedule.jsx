@@ -36,8 +36,10 @@ function DetailSchedule() {
         if (name === 'allCheck') {
             const tmp_data = schedule.map((item) => ({ ...item, isChecked: checked }));
             setSchedule(tmp_data);
+            
         } else {
-            const tmp_data = schedule.map((item) => (item.id === parseInt(name) ? { ...item, isChecked: checked } : item));
+            
+            const tmp_data = schedule.filter((item) => (item.id === parseInt(name) ? { ...item, isChecked: checked } : item));
             setSchedule(tmp_data);
         }
     };
